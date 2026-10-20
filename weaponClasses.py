@@ -3,8 +3,8 @@ from abc import ABC, abstractmethod
 class Weapon(ABC):
 
     def __init__(self, name:str, damage:float):
-        self.name
-        self.damage
+        self.name = name
+        self.damage = damage
 
     def save(self, filename)->None:
         with open(filename, "w") as f:
@@ -18,10 +18,9 @@ class Weapon(ABC):
         return f"Weapon {self.name} with {self.damage} damage."
 
         
-
-
 class MeleeWeapon(Weapon):
-    pass
+    def __repr__(self):
+        return f"Melee Weapon {self.name} with {self.damage} damage."
 
 class RangedWeapon(Weapon):
 
@@ -29,8 +28,8 @@ class RangedWeapon(Weapon):
         super().__init__(name, damage)
         self.range = range
 
-    def save(self, filename):
-        pass
+    def __repr__(self):
+        return f"Ranged Weapon {self.name} with {self.damage} damage and {self.range} range."
 
 class MagicWeapon(Weapon):
 
@@ -40,8 +39,5 @@ class MagicWeapon(Weapon):
         self.manaCost = manaCost
 
 
-    def save(self, filename):
-        pass
-
     def __repr__(self):
-        return f"MagicWeapon"
+        return f"Magic Weapon {self.name} with {self.damage} damage and {self.range} range. Has a mana cost of {self.manaCost}."
