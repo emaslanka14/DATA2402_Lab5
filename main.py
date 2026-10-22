@@ -5,9 +5,9 @@ def attack(attacker: Character, weapon: Weapon, target: Character, distance: int
     
     # only Mages can use a MagicWeapon
     if isinstance(weapon, MagicWeapon) and not isinstance(attacker, Mage):
-        raise TypeError("Only Mages can use a MagicWeapon")
+        raise TypeError("Only Mages can use a Magic Weapon")
 
-    if isinstance(weapon, RangedWeapon):
+    if isinstance(weapon, (RangedWeapon, MagicWeapon)):
         # can't exceed the weapon's range
         if distance > weapon.range:
             raise ValueError("Target is out of range")
@@ -17,3 +17,4 @@ def attack(attacker: Character, weapon: Weapon, target: Character, distance: int
             raise ValueError("This weapon has no range and can't be used at a distance")
 
     target.health -= weapon.damage
+
