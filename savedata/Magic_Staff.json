@@ -1,0 +1,7 @@
+{
+  "name": "Magic Staff",
+  "damage": 20,
+  "internal": "Magic_Staff",
+  "range": 10,
+  "manaCost": 5
+}

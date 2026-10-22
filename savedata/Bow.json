@@ -1,6 +1,6 @@
 {
   "name": "Bow",
-  "damage": 10.5,
+  "damage": 12,
   "internal": "Bow",
-  "range": 45
+  "range": 10
 }
