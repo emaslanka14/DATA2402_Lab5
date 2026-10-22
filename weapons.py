@@ -1,15 +1,20 @@
 from abc import ABC, abstractmethod
+import json
 
 class Weapon(ABC):
 
     def __init__(self, name:str, damage:float):
         self.name = name
         self.damage = damage
+        self.internal = name.replace(" ", "_")
 
-    def save(self, filename)->None:
-        with open(filename, "w") as f:
-            f.write(str(self))
-    
+    def save(self, filename=None)->None:
+        if filename is None:
+            filename = self.internal
+
+        with open(f"savedata/{filename}.json", "w") as f:
+            json.dump(self, f, default=lambda o: o.__dict__, indent=2)
+        
     @abstractmethod
     def __repr__(self):
         pass

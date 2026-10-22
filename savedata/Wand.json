@@ -1,0 +1,7 @@
+{
+  "name": "Wand",
+  "damage": 15,
+  "internal": "Wand",
+  "range": 30,
+  "manaCost": 10
+}
